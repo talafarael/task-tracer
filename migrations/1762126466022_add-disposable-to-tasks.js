@@ -1,11 +1,5 @@
 exports.up = (pgm) => {
-  pgm.addColumn("tasks", {
-    disposable: {
-      type: "boolean",
-      notNull: true,
-      default: false,
-    },
-  });
+  pgm.addColumn("tasks", {});
 };
 
 exports.down = (pgm) => {

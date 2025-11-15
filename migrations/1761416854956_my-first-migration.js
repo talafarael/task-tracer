@@ -42,17 +42,17 @@ exports.up = (pgm) => {
       references: "user_chats(chat_id)",
       onDelete: "CASCADE",
     },
-    disposable: {
-      type: "boolean",
-      notNull: true,
-      default: false,
-    },
     title: { type: "text", notNull: true },
     description: { type: "text" },
     created_at: {
       type: "timestamp",
       notNull: true,
       default: pgm.func("current_timestamp"),
+    },
+    disposable: {
+      type: "boolean",
+      notNull: true,
+      default: false,
     },
   });
 

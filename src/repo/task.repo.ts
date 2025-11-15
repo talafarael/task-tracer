@@ -1,8 +1,16 @@
 import { query } from "../db/request/query";
+import { Day } from "../enums/day.enum";
 import { ValidationError } from "../errors/validation-errors";
 import { CreateTask, Task } from "../models/task.model";
 import { createSheduleTimesRepo } from "./sheduled-time.repo";
-
+export const findTaskByTime = async (time: string, day: Day) => {
+  const sql = `
+    SELECT t.*
+    FROM tasks t
+    JOIN scheduled_time s ON t.id = s.task_id
+    WHERE $1 = ANY(s.time_slots) AND s.day = $2
+  `;
+};
 export const createTaskRepo = async (
   data: CreateTask,
   userId: number,
