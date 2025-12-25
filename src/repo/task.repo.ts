@@ -3,13 +3,34 @@ import { Day } from "../enums/day.enum";
 import { ValidationError } from "../errors/validation-errors";
 import { CreateTask, Task } from "../models/task.model";
 import { createSheduleTimesRepo } from "./sheduled-time.repo";
-export const findTaskByTime = async (time: string, day: Day) => {
+
+export const findTaskByTime = async (
+  time: string,
+  day: Day,
+): Promise<Task[]> => {
   const sql = `
-    SELECT t.*
-    FROM tasks t
-    JOIN scheduled_time s ON t.id = s.task_id
-    WHERE $1 = ANY(s.time_slots) AND s.day = $2
+ SELECT
+  t.*,
+  st."scheduledTime"
+FROM tasks t
+JOIN (
+  SELECT
+    task_id,
+    json_agg(
+      json_build_object(
+        'day', day,
+        'timeSlots', time_slots
+      )
+    ) AS "scheduledTime"
+  FROM scheduled_time
+  WHERE $1 = ANY(time_slots)
+    AND day = $2
+  GROUP BY task_id
+) st ON st.task_id = t.id;
   `;
+  const res = await query<Task>(sql, [time, day]);
+  console.log(res);
+  return res;
 };
 export const createTaskRepo = async (
   data: CreateTask,

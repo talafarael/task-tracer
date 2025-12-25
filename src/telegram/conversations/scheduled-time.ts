@@ -20,7 +20,10 @@ export const scheduledTimesConversation = async (
   conversation: MyConversation,
   ctx: BotContext,
   idMessage: number,
-): Promise<CreateScheduledTime[]> => {
+): Promise<{
+  scheduledTimes: CreateScheduledTime[];
+  idMessage: number;
+}> => {
   const locale = await conversation.external(
     () => ctx.session?.__language_code || "en",
   );
@@ -61,7 +64,7 @@ export const scheduledTimesConversation = async (
     idMessage = messageScheduledTimes.message_id ?? idMessage;
     dayButton = await dayAddKeyboard((name: string) => i18n.t(locale, name));
   }
-  return scheduledTimes;
+  return { scheduledTimes, idMessage };
 };
 export const scheduledTimeConversation = async (
   conversation: MyConversation,
@@ -77,7 +80,10 @@ export const scheduledTimeConversation = async (
     button,
   );
   if (choiceChooseDay === DayKeyboardEnum.createTaskTime) {
-    return "next";
+    return {
+      action: "next",
+      idMessage: choiceChooseDay.messageId,
+    };
   }
   const selectedDay: Day = Object.entries(DayKeyboardEnum).find(
     ([, v]) => v === choiceChooseDay,
@@ -135,7 +141,7 @@ export const chooseDayConversation = async (
 
   const text = i18n.t(locale, "chooseDay") + " ";
   await editMessage(ctx.chat.id, idMessage, text, button);
-  const { choice: choiceChooseDay } =
+  const { choice: choiceChooseDay, messageId } =
     await handlerGetCallbackQueryMessage<DayKeyboardEnum>(conversation);
 
   return choiceChooseDay;

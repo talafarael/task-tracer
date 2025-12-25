@@ -22,3 +22,13 @@ export const createUserChatRepo = async (data: CreateUserChat) => {
     throw new ValidationError("Failed to create user chat");
   }
 };
+export const findOneById = async (
+  useChatId: number,
+): Promise<UserChat | undefined> => {
+  const sqlRequest = `
+    SELECT * FROM user_chats
+    WHERE user_chats.chat_id = $1
+  `;
+  const res = await query<UserChat>(sqlRequest, [useChatId]);
+  return res[0];
+};

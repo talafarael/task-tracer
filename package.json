@@ -10,7 +10,8 @@
     "dev": "ts-node src/index.ts",
     "migrate:create": "node-pg-migrate create --ts",
     "migrate:up": "node-pg-migrate up --ts-node",
-    "migrate:down": "node-pg-migrate down --ts-node"
+    "migrate:down": "node-pg-migrate down --ts-node",
+    "docker": "sudo docker-compose -f docker-compose.yml.dev up -d"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "@types/pg": "^8.15.5",
     "dotenv": "^17.2.3",
     "grammy": "^1.38.3",
+    "node-cron": "^4.2.1",
     "pg": "^8.16.3"
   }
 }

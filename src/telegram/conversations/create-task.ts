@@ -5,7 +5,7 @@ import {
   handlerGetCallbackQueryMessage,
   handlerGetTextMessage,
 } from "../helpers/conversation";
-import { sendReply } from "../helpers/messages";
+import { editMessage, sendReply } from "../helpers/messages";
 import { regularChooseKeyboard } from "../key-board/create-task-keyboard";
 import { BotContext } from "../type/context";
 import { MyConversation } from "../type/conversation";
@@ -42,27 +42,32 @@ export const createTaskConversation = async (
 
   const disposable =
     choiceReguular === "regularButtonChooseAction" ? true : false;
-  const time = await scheduledTimesConversation(conversation, ctx, messageId);
+  const { scheduledTimes, idMessage } = await scheduledTimesConversation(
+    conversation,
+    ctx,
+    messageId,
+  );
 
   const newTask = {
     title,
     description,
     disposable,
-    scheduledTime: time,
+    scheduledTime: scheduledTimes,
   };
-  await ctx.reply("sta");
   await conversation.external(async (ctx) => {
+    if (ctx?.chat) return;
     // ctx.session.createTaskData = newTask;
     const task = await createTaskService(newTask, ctx.chat?.id ?? 0);
     const schedule = formatTaskSchedule(task);
-    console.log("suk");
-    await ctx.reply(
-      i18n.t(locale, "createdTask", {
-        title: task.title,
-        disposable: task.disposable.toString(),
-        schedule,
-      }),
-    );
+    const taskCreatedMessage = i18n.t(locale, "createdTask", {
+      title: task.title,
+      disposable: task.disposable.toString(),
+      schedule,
+    });
+
+    console.log(ctx.chat?.id ?? 0, idMessage);
+    await editMessage(ctx.chat?.id ?? 0, idMessage, taskCreatedMessage);
+    // await ctx.reply();
   });
   return newTask;
 };
