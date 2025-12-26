@@ -1,25 +1,13 @@
-<<<<<<< HEAD
-node_modules
-dist
-data/
-init.sql
-.env
-
-
-=======
 # Project
 .idea/
 .vscode/
 .code-workspace
-data/*
 
 # Environment
 .venv/
 .env
 venv/
 docker-compose.yml
-uv.lock
-.tests
 
 # Cache
 __pycache__/
@@ -37,4 +25,3 @@ dist/
 site/
 *.egg-info/
 *.egg
->>>>>>> 356478511a871560cc8ed38f3783d2f85e9d50da
