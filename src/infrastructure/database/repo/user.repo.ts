@@ -1,6 +1,6 @@
-import { query } from "../utils/db/request/query";
-import { ValidationError } from "../utils/errors/validation-errors";
-import { CreateUser, User } from "../entites/models/user.model";
+import { query } from "../request/query";
+import { ValidationError } from "../../../utils/errors/validation-errors";
+import { CreateUser, User } from "../../../entites/models/user.model";
 
 export const createUserRepo = async (data: CreateUser): Promise<User> => {
   try {

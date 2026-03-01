@@ -1,9 +1,9 @@
-import { query } from "../utils/db/request/query";
-import { ValidationError } from "../utils/errors/validation-errors";
+import { query } from "../request/query";
+import { ValidationError } from "../../../utils/errors/validation-errors";
 import {
   CreateScheduledTime,
   ScheduledTime,
-} from "../entites/models/scheduled-time.model";
+} from "../../../entites/models/scheduled-time.model";
 
 export const createSheduleTimeRepo = async (
   data: CreateScheduledTime,

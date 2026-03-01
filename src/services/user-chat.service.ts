@@ -1,5 +1,5 @@
 import { CreateUserChat } from "../entites/models/user-chat.model";
-import { createUserChatRepo } from "../repo/user-chat.repo";
+import { createUserChatRepo } from "../infrastructure/database/repo/user-chat.repo";
 
 export const createUserChat = async (chatId: number, userId: number) => {
   const userChatData: CreateUserChat = {

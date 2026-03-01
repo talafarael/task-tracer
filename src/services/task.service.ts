@@ -1,7 +1,7 @@
 import { Day } from "../entites/enums/day.enum";
 import { ValidationError } from "../utils/errors/validation-errors";
 import { CreateTask, Task } from "../entites/models/task.model";
-import { createFullTaskRepo } from "../repo/task.repo";
+import { createFullTaskRepo } from "../infrastructure/database/repo/task.repo";
 
 export const createTaskService = async (
   data: CreateTask,

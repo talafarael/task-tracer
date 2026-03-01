@@ -8,3 +8,6 @@ export const configVerify = (name: string): string => {
   }
   return value;
 };
+export const getEnvOrDefault = (name: string, defaultValue: string): string => {
+  return process.env[name] ?? defaultValue;
+};

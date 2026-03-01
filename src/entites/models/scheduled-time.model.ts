@@ -1,7 +1,8 @@
 import { Day } from "../enums/day.enum";
 
 export interface CreateScheduledTime {
-  day: Day;
+  day: Day[];
+  time: Date[];
   timeSlots: string[];
 }
 export interface ScheduledTime extends CreateScheduledTime {

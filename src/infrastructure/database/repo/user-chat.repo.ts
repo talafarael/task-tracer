@@ -1,6 +1,6 @@
-import { query } from "../utils/db/request/query";
-import { ValidationError } from "../utils/errors/validation-errors";
-import { CreateUserChat, UserChat } from "../entites/models/user-chat.model";
+import { query } from "../request/query";
+import { ValidationError } from "../../../utils/errors/validation-errors";
+import { CreateUserChat, UserChat } from "../../../entites/models/user-chat.model";
 
 export const createUserChatRepo = async (data: CreateUserChat) => {
   try {

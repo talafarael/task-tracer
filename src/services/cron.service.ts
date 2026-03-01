@@ -1,7 +1,7 @@
-import { findTaskByTime } from "../repo/task.repo";
+import { findTaskByTime } from "../infrastructure/database/repo/task.repo";
 import { dayMapping } from "../entites/models/scheduled-time.model";
 import { Task } from "../entites/models/task.model";
-import { findOneById } from "../repo/user-chat.repo";
+import { findOneById } from "../infrastructure/database/repo/user-chat.repo";
 import { sendMessage } from "../applications/telegram/helpers/messages";
 import { formatTaskSchedule } from "../applications/telegram/utils/formater-scheduled";
 
