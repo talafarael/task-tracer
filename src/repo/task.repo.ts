@@ -1,7 +1,7 @@
-import { query } from "../db/request/query";
-import { Day } from "../enums/day.enum";
-import { ValidationError } from "../errors/validation-errors";
-import { CreateTask, Task } from "../models/task.model";
+import { query } from "../utils/db/request/query";
+import { Day } from "../entites/enums/day.enum";
+import { ValidationError } from "../utils/errors/validation-errors";
+import { CreateTask, Task } from "../entites/models/task.model";
 import { createSheduleTimesRepo } from "./sheduled-time.repo";
 
 export const findTaskByTime = async (
@@ -32,6 +32,7 @@ JOIN (
   console.log(res);
   return res;
 };
+
 export const createTaskRepo = async (
   data: CreateTask,
   userId: number,

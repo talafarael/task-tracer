@@ -1,5 +1,5 @@
 import { Bot, session } from "grammy";
-import { botConfig } from "../config/bot";
+import { botConfig } from "../../utils/config/bot";
 import { BotContext, UserContext } from "./type/context";
 import { router } from "./handlers/router";
 import { BotSession } from "./type/session";

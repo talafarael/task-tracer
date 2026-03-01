@@ -1,8 +1,8 @@
 import cron from "node-cron";
-import { connectDB } from "./db/connect";
-import { intiBot } from "./telegram/bot";
+import { connectDB } from "./utils/db/connect";
+import { intiBot } from "./applications/telegram/bot";
 import { sendTasksService } from "./services/cron.service";
-import { Day } from "./enums/day.enum";
+import { Day } from "./entites/enums/day.enum";
 import { findTaskByTime } from "./repo/task.repo";
 
 const start = async () => {

@@ -1,6 +1,6 @@
-import { Day } from "../enums/day.enum";
-import { ValidationError } from "../errors/validation-errors";
-import { CreateTask, Task } from "../models/task.model";
+import { Day } from "../entites/enums/day.enum";
+import { ValidationError } from "../utils/errors/validation-errors";
+import { CreateTask, Task } from "../entites/models/task.model";
 import { createFullTaskRepo } from "../repo/task.repo";
 
 export const createTaskService = async (

@@ -1,6 +1,6 @@
 import { SessionFlavor, Context } from "grammy";
 import { BotSession } from "./session";
-import { User } from "../../models/user.model";
+import { User } from "../../../entites/models/user.model";
 import { I18nFlavor } from "@grammyjs/i18n";
 import { ConversationFlavor } from "@grammyjs/conversations";
 

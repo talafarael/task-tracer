@@ -68,8 +68,9 @@ exports.up = (pgm) => {
       references: "tasks",
       onDelete: "CASCADE",
     },
-    day: { type: "day_enum", notNull: true },
-    time_slots: { type: "text[]", notNull: true },
+    day: { type: "day_enum[]" },
+    date: { type: "date[]" },
+    time_slots: { type: "text[]" },
   });
 
   pgm.createIndex("user_chats", "user_id");

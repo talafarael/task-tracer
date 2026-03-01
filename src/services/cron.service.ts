@@ -1,9 +1,9 @@
 import { findTaskByTime } from "../repo/task.repo";
-import { dayMapping } from "../models/scheduled-time.model";
-import { Task } from "../models/task.model";
+import { dayMapping } from "../entites/models/scheduled-time.model";
+import { Task } from "../entites/models/task.model";
 import { findOneById } from "../repo/user-chat.repo";
-import { sendMessage } from "../telegram/helpers/messages";
-import { formatTaskSchedule } from "../telegram/utils/formater-scheduled";
+import { sendMessage } from "../applications/telegram/helpers/messages";
+import { formatTaskSchedule } from "../applications/telegram/utils/formater-scheduled";
 
 export const sendTasksService = async () => {
   try {

@@ -1,4 +1,4 @@
-import { Task } from "../../models/task.model";
+import { Task } from "../../../entites/models/task.model";
 
 export const formatTaskSchedule = (task: Task) => {
   return task.scheduledTime

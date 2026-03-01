@@ -1,5 +1,5 @@
-import { CreateTask } from "../../models/task.model";
-import { createTaskService } from "../../services/task.service";
+import { CreateTask } from "../../../entites/models/task.model";
+import { createTaskService } from "../../../services/task.service";
 import { i18n } from "../bot";
 import {
   handlerGetCallbackQueryMessage,

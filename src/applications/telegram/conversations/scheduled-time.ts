@@ -1,5 +1,5 @@
-import { Day } from "../../enums/day.enum";
-import { CreateScheduledTime } from "../../models/scheduled-time.model";
+import { Day } from "../../../entites/enums/day.enum";
+import { CreateScheduledTime } from "../../../entites/models/scheduled-time.model";
 import { i18n } from "../bot";
 import { DayKeyboardEnum } from "../enum/day-keyboard.enum";
 import {

@@ -1,4 +1,4 @@
-import { snakeToCamel } from "../../utils/snakeToCamel";
+import { snakeToCamel } from "../../snakeToCamel";
 import { pool } from "../connect";
 
 export const query = async <T extends Record<string, any>>(

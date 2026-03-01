@@ -1,6 +1,6 @@
 import { NextFunction } from "grammy";
-import { getOrCreateUserAndChat } from "../../services/user.service";
-import { ValidationError } from "../../errors/validation-errors";
+import { getOrCreateUserAndChat } from "../../../services/user.service";
+import { ValidationError } from "../../../utils/errors/validation-errors";
 import { UserContext } from "../type/context";
 
 export const userMiddleware = async (

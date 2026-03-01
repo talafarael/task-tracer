@@ -1,6 +1,6 @@
 import type { User as TelegramUser } from "@grammyjs/types";
 import { createUserRepo, findOneByIdRepo } from "../repo/user.repo";
-import { CreateUser, User } from "../models/user.model";
+import { CreateUser, User } from "../entites/models/user.model";
 import { createUserChat } from "./user-chat.service";
 
 export const getOrCreateUserAndChat = async (

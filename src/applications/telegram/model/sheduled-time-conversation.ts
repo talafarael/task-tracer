@@ -1,4 +1,4 @@
-import { Day } from "../../enums/day.enum";
+import { Day } from "../../../entites/enums/day.enum";
 
 export interface ScheduledTimeConversation {
   day: Day;
